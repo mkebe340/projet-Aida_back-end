@@ -32,5 +32,5 @@ adminSchema.methods = {
 
 };
 
-module.exports = mongoose.model ("Admin" , adminSchema);
+module.exports = mongoose.model ("Admin" , adminSchema)
 
