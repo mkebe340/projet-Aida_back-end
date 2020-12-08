@@ -26,6 +26,12 @@ mongoose.connect(connection_url, {
     console.log ("erreur DB");
     console.log(err);
 });
+//body-parser
+const urlencodedParser = bodyParser.urlencoded ({
+    extended: true
+});
+app.use (urlencodedParser);
+app.use (bodyParser.json())
 //middleware
 
 
