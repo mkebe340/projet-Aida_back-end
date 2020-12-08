@@ -17,6 +17,15 @@ mongoose.connect(connection_url, {
     useCreateIndex: true,
     useUnifiedTopology: true
 })
+// afficher quand la DB est connecté
+.then (() => {
+    console.log ("connecté à mongoDB")
+})
+// catch les erreurs
+.catch ((err) => {
+    console.log ("erreur DB");
+    console.log(err);
+});
 //middleware
 
 
