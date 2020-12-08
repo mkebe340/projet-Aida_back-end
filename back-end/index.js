@@ -51,37 +51,37 @@ app.use (function(req, res, next) {
 
 //api routes
 app.get('/home', (req, res) => {
-    res.render('test home page')
+    res.send('test home page')
 })
 
 /* dashboard routes*/
 app.get('/login', (req, res) => {
-    res.render('login')
+    res.send('login')
 })
 
 app.get('/signup', (req, res) => {
-    res.render('signup')
+    res.send('signup')
 })
 
 app.get('/admin', (req, res) => {
-   res.render('admin')
+   res.send('admin')
     if(req.isAuthenticated()){
-        res.render('admin')
+        res.send('admin')
     } else{
-        res.render('login')
+        res.send('login')
     }
 })
 
 app.get('/logout', (req, res) => {
     console.log('logout')
-    res.render('logout')
+    res.send('logout')
 })
 //config. du router
 const router = express.Router();
 app.use("/admin", router);
 require(__dirname + "/controllers/adminController")(router);
-//listent
 
-app.listen(port,() => {
-    console.log(`Server started on port : ${port}`)
-})
+//listent
+app.listen(port, () => {
+    console.log('Server started on port: ' + port);
+  });
