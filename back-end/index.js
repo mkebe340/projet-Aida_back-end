@@ -32,6 +32,20 @@ const urlencodedParser = bodyParser.urlencoded ({
 });
 app.use (urlencodedParser);
 app.use (bodyParser.json())
+// config. des CORS
+app.use (function(req, res, next) {
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "X-Requested-With,content-type"
+    );
+    res.setHeader("Access-Control-ALlow-Origin","*");
+    res.setHeader(
+        "Access-COntrol-Allow-Methods",
+        "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+    );
+    res.setHeader("Access-Control-Allow-Credentials", true);
+    next();
+});
 //middleware
 
 
