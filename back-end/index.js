@@ -50,11 +50,11 @@ app.use (function(req, res, next) {
 
 
 //api routes
-app.get('/homepage', (req, res) => {
-    res.render('')
+app.get('/home', (req, res) => {
+    res.render('test home page')
 })
 
-/* dashboard */
+/* dashboard routes*/
 app.get('/login', (req, res) => {
     res.render('login')
 })
@@ -76,7 +76,10 @@ app.get('/logout', (req, res) => {
     console.log('logout')
     res.render('logout')
 })
-
+//config. du router
+const router = express.Router();
+app.use("/admin", router);
+require(__dirname + "/controllers/adminController")(router);
 //listent
 
 app.listen(port,() => {
