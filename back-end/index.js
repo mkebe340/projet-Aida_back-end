@@ -1,7 +1,10 @@
 //importing
 const express = require('express');
+const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
 
 
 
@@ -17,71 +20,70 @@ mongoose.connect(connection_url, {
     useCreateIndex: true,
     useUnifiedTopology: true
 })
-// afficher quand la DB est connecté
-.then (() => {
-    console.log ("connecté à mongoDB")
-})
-// catch les erreurs
-.catch ((err) => {
-    console.log ("erreur DB");
-    console.log(err);
-});
+    // afficher quand la DB est connecté
+    .then(() => {
+        console.log("connecté à mongoDB")
+    })
+    // catch les erreurs
+    .catch((err) => {
+        console.log("erreur DB");
+        console.log(err);
+    });
 //body-parser
-const urlencodedParser = bodyParser.urlencoded ({
+const urlencodedParser = bodyParser.urlencoded({
     extended: true
 });
-app.use (urlencodedParser);
-app.use (bodyParser.json())
+app.use(urlencodedParser);
+app.use(bodyParser.json())
+
 // config. des CORS
-app.use (function(req, res, next) {
-    res.setHeader(
-        "Access-Control-Allow-Headers",
-        "X-Requested-With,content-type"
-    );
-    res.setHeader("Access-Control-ALlow-Origin","*");
-    res.setHeader(
-        "Access-COntrol-Allow-Methods",
-        "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-    );
-    res.setHeader("Access-Control-Allow-Credentials", true);
-    next();
-});
+app.use(cors);
+
 //middleware
 
+// routes hdlbs dashboard 
 
-//api routes
-app.get('/home', (req, res) => {
-    res.send('test home page')
-})
+app.engine('handlebars', exphbs({
+    defaultLayout: false,
+    layoutsDir: __dirname + "views"
+}));
 
-/* dashboard routes*/
-app.get('/login', (req, res) => {
-    res.send('login')
-})
+app.use(express.static('public'))
 
-app.get('/signup', (req, res) => {
-    res.send('signup')
-})
+app.set('view engine', 'handlebars');
 
-app.get('/admin', (req, res) => {
-   res.send('admin')
-    if(req.isAuthenticated()){
-        res.send('admin')
-    } else{
-        res.send('login')
+app.get('/login', function (req, res) {
+    res.render('login');
+});
+
+app.get('/posts/liste', (req, res) => {
+    res.render('posts/liste')
+    if (req.isAuthenticated()) {
+        res.render('posts/liste')
+    } else {
+        res.render('login')
     }
-})
+});
+
+app.get('/posts/creation', (req, res) => {
+    res.render('posts/creation')
+    if (req.isAuthenticated()) {
+        res.render('posts/creation')
+    } else {
+        res.render('login')
+    }
+});
 
 app.get('/logout', (req, res) => {
     console.log('logout')
-    res.send('logout')
+    res.redirect('login')
 })
 //config. du router
 const router = express.Router();
 app.use("/admin", router);
 require(__dirname + "/controllers/adminController")(router);
 
-//listent
+//listen
 app.listen(port, () => {
     console.log('Server started on port: ' + port);
-  });
+});
