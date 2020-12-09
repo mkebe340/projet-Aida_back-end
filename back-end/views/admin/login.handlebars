@@ -1,1 +1,9 @@
-<h1>salam login</h1>
+{{> navbar }}
+
+<h1>Connexion au profil administrateur</h1>
+
+<form action="/auth/login" method="POST">
+  <input type="text" placeholder="Username" name="username"/>
+  <input type="password" placeholder="Password" name="password"/>
+  <button type="submit">CONNEXION</button>
+</form>
