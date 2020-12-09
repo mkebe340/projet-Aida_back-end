@@ -1,10 +1,8 @@
 // import des modules
 const mongoose = require ("mongoose");
-const passewordHash = require ("passeword-hash");
-const jwt = require ("jwt-simple");
-const config = require ("../config/config");
+
 // schema admin mongoose
-const adminSchema = mongoose.schema ({
+const adminSchema = mongoose.Schema ({
     email : {
         type : String,
         lowercase : true,
