@@ -37,7 +37,7 @@ app.use(urlencodedParser);
 app.use(bodyParser.json())
 
 // config. des CORS
-app.use(cors);
+app.use(cors());
 
 //middleware
 
@@ -52,31 +52,29 @@ app.use(express.static('public'))
 
 app.set('view engine', 'handlebars');
 
-app.get('/login', function (req, res) {
-    res.render('login');
+app.get('admin/login', function (req, res) {
+    res.render('admin/login');
 });
 
-app.get('/posts/liste', (req, res) => {
-    res.render('posts/liste')
+app.get('/admin/liste', (req, res) => {
     if (req.isAuthenticated()) {
-        res.render('posts/liste')
+        res.render('admin/liste')
     } else {
-        res.render('login')
+        res.render('admin/login')
     }
 });
 
-app.get('/posts/creation', (req, res) => {
-    res.render('posts/creation')
+app.get('/admin/creation', (req, res) => {
     if (req.isAuthenticated()) {
-        res.render('posts/creation')
+        res.render('admin/creation')
     } else {
-        res.render('login')
+        res.render('admin/login')
     }
 });
 
-app.get('/logout', (req, res) => {
+app.get('admin/logout', (req, res) => {
     console.log('logout')
-    res.redirect('login')
+    res.redirect('admin/login')
 })
 //config. du router
 const router = express.Router();
