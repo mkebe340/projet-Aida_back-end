@@ -1,17 +1,14 @@
-{{>navbar}}
+<h1>{{title}}</h1>
 
+<button type="btn">RETOUR SUR LE SITE</button>
 
-<h1>Liste des publications</h1>
-{{#each products}}
+<h1>Mes publications</h1>
 <div class="card" style="width: 18rem;">
-    <a href="/article/{{this._id}}">
-        <div class="post-body">
-            <h5 class="card-title">{{this.title}}</h5>
-            <button type="modify-btn">Modifier</button>
-            <button type="delete-btn">Supprimer</button>
-            <button type="create-btn">Créer un nouvel article</button>
-        </div>
-    </a>
+    <a href="/article/{{this._id}}"></a>
+    <div class="post-body">
+        <h5 class="card-title">{{this.title}}</h5>
+        <button type="modify-btn">Modifier</button>
+        <button type="delete-btn">Supprimer</button>
+        <button type="create-btn">Créer un nouvel article</button>
+    </div>
 </div>
-
-{{/each}}

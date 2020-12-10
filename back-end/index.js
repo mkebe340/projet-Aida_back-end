@@ -124,24 +124,31 @@ app.get('/admin/login', (req, res) => {
     if (req.isAuthenticated()) {
         res.render('admin/liste')
     } else {
-        res.render('admin/login')
+        res.render('admin/login', {
+            title : "connexion dashboard"
+        })
     }
 });
 
 app.get('/admin/liste', (req, res) => {
-    if (req.isAuthenticated()) {
-        res.render('admin/liste')
-    } else {
+     if (req.isAuthenticated()) { 
+        res.render('admin/liste',{
+            title: "Liste des publications"
+        })
+     } else {
         res.render('admin/login')
     }
 });
 
 app.get('/admin/creation', (req, res) => {
-    if (req.isAuthenticated()) {
-        res.render('admin/creation')
-    } else {
+     if (req.isAuthenticated()) {
+        res.render('admin/creation',{
+            title: "Mon éditeur d'articles"
+        })
+        
+     } else {
         res.render('admin/login')
-    }
+     }
 });
 
 
@@ -149,3 +156,14 @@ app.get('/admin/creation', (req, res) => {
 app.listen(port, () => {
     console.log('Server started on port: ' + port);
 });
+
+// {
+//     title: 'Post 1', => input text du html
+//     description: 'Testing first post', => textarea html
+//     content: '<html>
+//                  <head></head>
+//                  <body>
+//                      <h1>Test post 1 content</h1>
+//                  </body>
+//              </html>' => textarea wysiwyg
+// }
