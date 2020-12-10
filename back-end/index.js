@@ -121,22 +121,29 @@ passport.deserializeUser(async function(id, done) {
 
 
 app.get('/admin/login', (req, res) => {
-    res.render('admin/login')
+    res.render('admin/login',{
+        title: "Connexion au tableau de bord"
+    })
 })
 
 app.get('/admin/liste', (req, res) => {
-    if (req.isAuthenticated()) {
-        res.render('admin/liste')
-    } else {
+     if (req.isAuthenticated()) { 
+        res.render('admin/liste',{
+            title: "Liste des publications"
+        })
+     } else {
         res.render('admin/login')
     }
 });
 
 app.get('/admin/creation', (req, res) => {
     if (req.isAuthenticated()) {
-        res.render('admin/creation')
+        res.render('admin/creation',{
+            title: "Mon éditeur d'articles"
+        })
+        
     } else {
-        res.render('admin/login')
+       // res.render('admin/login')
     }
 });
 
