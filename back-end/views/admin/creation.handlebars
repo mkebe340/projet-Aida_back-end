@@ -1,18 +1,35 @@
-
-    <h1> Créer un article</h1>
-
-    <form enctype='multipart/form-data' action='/creation' method='POST'>
-        <textarea id="mytextarea">Hello, World!</textarea>
-
-        <input type="text" placeholder="Titre de l'article" name="title" value="Titre" />
-        <input type="text" placeholder="Description" name="description" value="Description" />
-        <input type="text" placeholder="Corps de l'article" name="article" value="Article" />
-         <!--  insérer un champs pour catégoriser et associer couleur au thème-->
-        <input type="number" name="price" value="10" />
-        <input type="file" name='image' />
-
-        <input type="file" name='image' />
-        <button type="submit">PUBLIER</button>
+<h1>{{title}}</h1>
 
 
-    </form>
+<button type="btn">RETOUR SUR LE SITE</button>
+
+<h1> Créer un article</h1>
+
+<form enctype='multipart/form-data' action='/creation' method='POST'>
+
+
+    <input type="text" placeholder="Titre de l'article" name="title" value="Titre de l'article" />
+    <input type="text" placeholder="Description" name="description" value="Description" />
+    <textarea id="mytextarea">Votre article ici... </textarea>
+    <!--  insérer un champs pour catégoriser et associer couleur au thème-->
+    <input type="color" name="Color" value="Couleur" />
+    <input type="file" name='image' />
+
+    <input type="file" name='multimédia' />
+
+    <textarea id="menubar">Écrire votre article...</textarea>
+
+    <button type="submit">PUBLIER</button>
+
+
+</form>
+
+<script>
+
+        // WYSIWYG 
+        tinymce.init({
+            selector: 'textarea#menubar',
+            menubar: 'file edit view'
+        });
+
+    </script>
