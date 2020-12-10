@@ -16,14 +16,14 @@ const Posts = require("./schema/postsSchema");
 
 // routes declare
 
-const adminRoute = require('./controllers/auth.js')
+//const adminRoute = require('./controllers/auth.js')
 
 //app config
 const app = express();
 const port = 3000;
 
 //DB config 
-const connection_url = "mongodb://localhost:27017/test"
+const connection_url = "mongodb://localhost:27017/aidaDB"
 
 mongoose.connect(connection_url, {
     useNewUrlParser: true,
@@ -78,7 +78,7 @@ app.use(cors());
 passport.use(new LocalStrategy(async function (username, password, done) {
     try {
         // trouver dans la DB
-        const user = await Admin.findOne({ username }).lean().exec();
+        const user = await Admin.findOne({ email }).lean().exec();
         if (!user) {
             return done(null, false, { message: 'This user was not found'});
         }
@@ -121,10 +121,14 @@ passport.deserializeUser(async function(id, done) {
 
 
 app.get('/admin/login', (req, res) => {
-    res.render('admin/login',{
-        title: "Connexion au tableau de bord"
-    })
-})
+    if (req.isAuthenticated()) {
+        res.render('admin/liste')
+    } else {
+        res.render('admin/login', {
+            title : "connexion dashboard"
+        })
+    }
+});
 
 app.get('/admin/liste', (req, res) => {
      if (req.isAuthenticated()) { 

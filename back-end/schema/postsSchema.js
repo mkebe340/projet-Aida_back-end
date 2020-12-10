@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Configuration Mongoose schema
-const schema = new mongoose.Schema({
+const postSchema = new mongoose.Schema({
 
     type: {
         type: String,
@@ -16,7 +16,7 @@ const schema = new mongoose.Schema({
         required: true
     },
     description: {
-        type: Number,
+        type: String,
         required: true,
         max: 100
     },
@@ -35,6 +35,6 @@ const schema = new mongoose.Schema({
     },
 });
 
-const Posts = new mongoose.model('Posts', schema);
+const Posts = new mongoose.model('Posts', postSchema);
 
 module.exports = Posts
