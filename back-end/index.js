@@ -137,14 +137,14 @@ app.get('/admin/liste', (req, res) => {
 });
 
 app.get('/admin/creation', (req, res) => {
-     if (req.isAuthenticated()) {
+    if (req.isAuthenticated()) {
         res.render('admin/creation',{
             title: "Mon éditeur d'articles"
         })
         
-     } else {
+    } else {
         res.render('admin/login')
-     }
+    }
 });
 
 
@@ -153,13 +153,14 @@ app.listen(port, () => {
     console.log('Server started on port: ' + port);
 });
 
-// {
-//     title: 'Post 1', => input text du html
-//     description: 'Testing first post', => textarea html
-//     content: '<html>
-//                  <head></head>
-//                  <body>
-//                      <h1>Test post 1 content</h1>
-//                  </body>
-//              </html>' => textarea wysiwyg
-// }
+
+//{
+    //     title: 'Post 1', => input text du html
+    //     description: 'Testing first post', => textarea html
+    //     content: '<html>
+    //                  <head></head>
+    //                  <body>
+    //                      <h1>Test post 1 content</h1>
+    //                  </body>
+    //              </html>' => textarea wysiwyg
+    // }
