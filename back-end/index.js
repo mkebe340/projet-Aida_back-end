@@ -119,9 +119,10 @@ passport.deserializeUser(async function(id, done) {
 
 // routes hdlbs dashboard 
 
-app.get('admin/login', function (req, res) {
-    res.render('admin/login');
-});
+
+app.get('/admin/login', (req, res) => {
+    res.render('admin/login')
+})
 
 app.get('/admin/liste', (req, res) => {
     if (req.isAuthenticated()) {
@@ -139,10 +140,6 @@ app.get('/admin/creation', (req, res) => {
     }
 });
 
-app.get('admin/logout', (req, res) => {
-    console.log('logout')
-    res.redirect('admin/login')
-})
 
 //listen
 app.listen(port, () => {
