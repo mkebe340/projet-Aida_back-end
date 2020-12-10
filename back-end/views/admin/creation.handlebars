@@ -1,1 +1,18 @@
-<h1>salam post creation<h1>
+
+    <h1> Créer un article</h1>
+
+    <form enctype='multipart/form-data' action='/creation' method='POST'>
+        <textarea id="mytextarea">Hello, World!</textarea>
+
+        <input type="text" placeholder="Titre de l'article" name="title" value="Titre" />
+        <input type="text" placeholder="Description" name="description" value="Description" />
+        <input type="text" placeholder="Corps de l'article" name="article" value="Article" />
+         <!--  insérer un champs pour catégoriser et associer couleur au thème-->
+        <input type="number" name="price" value="10" />
+        <input type="file" name='image' />
+
+        <input type="file" name='image' />
+        <button type="submit">PUBLIER</button>
+
+
+    </form>
