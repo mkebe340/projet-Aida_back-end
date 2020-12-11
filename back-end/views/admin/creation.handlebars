@@ -5,33 +5,7 @@
 
   <!-- WYSIWYG -->
 
-  <script src="https://cdn.tiny.cloud/1/n268b6up9mbq4dpqsrnu7p6mkazxczwuxvatwgb64uvvnrr1/tinymce/5/tinymce.min.js"
-        referrerpolicy="origin">
-    </script>
 
-  <script type="text/javascript">
-    tinymce.init({
-      selector: '#content',
-      width: 600,
-      height: 300,
-      plugins: [
-        'advlist autolink link image lists charmap print preview hr anchor pagebreak',
-        'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-        'table emoticons template paste help'
-      ],
-      toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
-        'bullist numlist outdent indent | link image | print preview media fullpage | ' +
-        'forecolor backcolor emoticons | help',
-      menu: {
-        favs: { title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons' }
-      },
-      menubar: 'favs file edit view insert format tools table help',
-      content_css: [
-        '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
-        '//www.tinymce.com/css/codepen.min.css'
-      ]
-    });
-  </script>
 
 </head>
 
@@ -63,7 +37,36 @@
 
   </form>
 
+  <script src="https://cdn.tiny.cloud/1/n268b6up9mbq4dpqsrnu7p6mkazxczwuxvatwgb64uvvnrr1/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin">
+    </script>
 
+  <script type="text/javascript">
+    tinymce.init({
+      selector: '#content',
+      width: 600,
+      height: 300,
+      plugins: [
+        'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+        'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+        'table emoticons template paste help'
+      ],
+      toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+        'bullist numlist outdent indent | link image | print preview media fullpage | ' +
+        'forecolor backcolor emoticons | help',
+      menu: {
+        favs: { title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons' }
+      },
+      menubar: 'favs file edit view insert format tools table help',
+      content_css: [
+        '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+        '//www.tinymce.com/css/codepen.min.css'
+      ]
+    });
+  </script>
+  <script>
+    
+  </script>
 </body>
 
 </html>

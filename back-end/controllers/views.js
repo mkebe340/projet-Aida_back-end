@@ -1,10 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+router.get('/admin/signup', (req, res, next) => {
+    res.render('admin/signup');
+})
 
 router.get('/admin/login', (req, res, next) => {
     res.render('admin/login');
 })
+
 
 // route protégé par authorization par session
 router.get('/admin/liste', (req, res, next) => {
