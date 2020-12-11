@@ -9,6 +9,14 @@ router.get('/admin/login', (req, res, next) => {
     res.render('admin/login');
 })
 
+router.get('/admin/creation', (req, res, next) => {
+    res.render('admin/creation');
+})
+
+router.post('/admin/creation', (req, res, next) => {
+    console.log(req.body)
+    res.send(req.body);
+})
 
 // route protégé par authorization par session
 router.get('/admin/liste', (req, res, next) => {
