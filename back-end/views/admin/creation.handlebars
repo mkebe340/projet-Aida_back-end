@@ -5,7 +5,37 @@
 
   <!-- WYSIWYG -->
 
-  <script src="https://cdn.tiny.cloud/1/n268b6up9mbq4dpqsrnu7p6mkazxczwuxvatwgb64uvvnrr1/tinymce/5/tinymce.min.js"
+  
+
+</head>
+
+<body>
+
+  <h1>{{title}}</h1>
+
+
+  <button type="btn">RETOUR SUR LE SITE</button>
+
+  <h1> Créer un article</h1>
+
+  <form action='/admin/creation' method='POST'>
+
+
+    <input type="text" placeholder="Titre de l'article" name="title" value="Titre de l'article" />
+    <input type="text" placeholder="Description" name="description" value="Description" />
+    <!--  insérer un champs pour catégoriser et associer couleur au thème-->
+    <!--<input type="color" name="Color" value="Couleur" />
+    <input type="file" name='image' />
+
+    <input type="file" name='multimédia' />-->
+
+    <textarea id="content" name="texte">Écrire votre article...</textarea>
+
+    <button type="submit">PUBLIER</button>
+
+
+
+<script src="https://cdn.tiny.cloud/1/n268b6up9mbq4dpqsrnu7p6mkazxczwuxvatwgb64uvvnrr1/tinymce/5/tinymce.min.js"
         referrerpolicy="origin">
     </script>
 
@@ -32,35 +62,6 @@
       ]
     });
   </script>
-
-</head>
-
-<body>
-
-  <h1>{{title}}</h1>
-
-
-  <button type="btn">RETOUR SUR LE SITE</button>
-
-  <h1> Créer un article</h1>
-
-  <form enctype='multipart/form-data' action='/creation' method='POST'>
-
-
-    <input type="text" placeholder="Titre de l'article" name="title" value="Titre de l'article" />
-    <input type="text" placeholder="Description" name="description" value="Description" />
-    <textarea id="mytextarea">Votre article ici... </textarea>
-    <!--  insérer un champs pour catégoriser et associer couleur au thème-->
-    <input type="color" name="Color" value="Couleur" />
-    <input type="file" name='image' />
-
-    <input type="file" name='multimédia' />
-
-    <textarea id="content">Écrire votre article...</textarea>
-
-    <button type="submit">PUBLIER</button>
-
-
   </form>
 
 
