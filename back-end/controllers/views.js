@@ -37,4 +37,10 @@ router.get('/admin/liste', (req, res, next) => {
     res.render('admin/login');
 })
 
+router.get('/admin/login', (req, res, next) => {
+    res.render('admin/login',{
+        title: "Connexion au tableau de bord"
+    });
+})
+
 module.exports = router;
