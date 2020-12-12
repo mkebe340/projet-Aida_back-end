@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const uploader = require('../config/fileUploader')
 
 router.get('/admin/signup', (req, res, next) => {
     res.render('admin/signup');
@@ -17,7 +18,7 @@ router.get('/admin/creation', (req, res, next) => {
     });
 })
 
-router.post('/admin/creation', (req, res, next) => {
+router.post('/admin/creation', uploader.single('image') , (req, res, next) => {
     console.log(req.body)
     res.send(req.body);
 })

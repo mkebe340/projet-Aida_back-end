@@ -8,12 +8,11 @@ const postSchema = new mongoose.Schema({
         enum: ["publication", "portrait", "association"],
         required: true,
     },
-    theme: {
-        type: String,
-    },
+    theme: String,
     titre: {
         type: String,
-        required: true
+        required: true,
+        index : true
     },
     description: {
         type: String,
@@ -24,15 +23,9 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    imageUrl: {
-        type: [String]
-    },
-    videoUrl: {
-        type: [String]
-    },
-    podcastUrl: {
-        type: [String]
-    },
+    imageUrl: [String],
+    videoUrl: [String],
+    podcastUrl: [String]
 });
 
 const Posts = new mongoose.model('Posts', postSchema);

@@ -11,10 +11,12 @@ const cors = require("cors")
 
 //models
 const User = require('./models/user');
+const Posts = require('./models/postsSchema')
 
 // Declare routes
 const authRoute = require('./controllers/auth.js')
 const viewRoute = require('./controllers/views.js')
+const postsRoute = require('./controllers/creation.js');
 
 
 //app config
@@ -74,6 +76,7 @@ passport.deserializeUser(User.deserializeUser());
 
 // declaration de toutes les routes de l'api
 app.use('/auth', authRoute(passport, User));
+app.use('/creation', postsRoute(passport, Posts));
 app.use('/', viewRoute);
 
 app.listen(port, () => {
