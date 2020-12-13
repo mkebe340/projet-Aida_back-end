@@ -7,21 +7,23 @@ router.get('/admin/signup', (req, res, next) => {
 })
 
 router.get('/admin/login', (req, res, next) => {
-    res.render('admin/login',{
+    res.render('admin/login', {
         title: "Connexion au tableau de bord"
     });
 })
 
 router.get('/admin/creation', (req, res, next) => {
-    res.render('admin/creation',{
+    res.render('admin/creation', {
         title: "Mon éditeur d'articles"
     });
 })
 
-router.post('/admin/creation', uploader.single('image') , (req, res, next) => {
-    console.log(req.body)
-    res.send(req.body);
-})
+router.post('/admin/creation',
+   // uploader.single('image') , 
+    (req, res, next) => {
+        console.log(req.body)
+        res.send(req.body);
+    })
 
 // route protégé par authorization par session
 router.get('/admin/liste', (req, res, next) => {
@@ -30,7 +32,7 @@ router.get('/admin/liste', (req, res, next) => {
     if (req.isAuthenticated()) {
         // Si l'utilisateur est authentifié, nous avons accès à l'objet req.user passé par les middlewares de passport antérieur
         console.log('in /admin/liste', req.user)
-        return res.render('admin/liste',{
+        return res.render('admin/liste', {
             title: "Liste des publications"
         })
     }
@@ -39,7 +41,7 @@ router.get('/admin/liste', (req, res, next) => {
 })
 
 router.get('/admin/login', (req, res, next) => {
-    res.render('admin/login',{
+    res.render('admin/login', {
         title: "Connexion au tableau de bord"
     });
 })
