@@ -41,4 +41,37 @@ router.get('/admin/login', (req, res, next) => {
     });
 })
 
+
+
+// Récupération des posts (articles) dans la db
+
+ // Récupération des posts à modifier
+ router.get('/admin/liste/modification/:id', (req, res, next) => {
+    postModel.findById(req.params.id)
+    .then(post => res.render("/admin/creation/modification", {
+    post
+    }))
+    .catch(dbErr => next(dbErr));
+    });
+
+    router.post('/admin/liste/modification/:id', uploader.single('image'), async (req, res) => {
+        const post = req.body;
+    if (req.file) post.image = req.file.secure_url;
+    postModel.findByIdAndUpdate(req.params.id, post)
+        .then(dbRes => res.redirect('/admin/liste'))
+        .catch(dbErr => next(dbErr));
+    });
+
+
+router.get('/admin/liste/suppression/:id', (req, res, next) => {
+    postModel.findByIdAndDelete(req.params.id)
+    .then(posts => {
+    res.redirect('/admin/liste'
+    )
+    })
+    .catch(dbErr => next(dbErr));
+    });
+    
+   
+    
 module.exports = router;
