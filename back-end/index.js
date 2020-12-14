@@ -44,7 +44,7 @@ mongoose.connect(connection_url, {
     });
 
 // config. des CORS
-app.use(cors())
+//app.use(cors())
 
 const app = express();
 // express config
