@@ -2,12 +2,20 @@ const express = require('express');
 const multer = require('multer');
 const router = express.Router();
 
+<<<<<<< HEAD
+
+const uploader = require ('../config/fileUploader.js');
+=======
+>>>>>>> c2dc6a147b0369498954bac207a9360ad5d219be
 
 const uploader = require ('../config/fileUploader.js');
 
 
+<<<<<<< HEAD
+=======
 module.exports = function (passport, Posts) {
 
+>>>>>>> c2dc6a147b0369498954bac207a9360ad5d219be
     router.get('/admin/liste', async (req, res, next) => {
         try {
             const posts = await Posts.find({}).lean().exec()

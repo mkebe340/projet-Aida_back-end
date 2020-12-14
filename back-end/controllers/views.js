@@ -18,12 +18,6 @@ router.get('/admin/creation', (req, res, next) => {
     });
 })
 
-router.post('/admin/creation',
-   // uploader.single('image') , 
-    (req, res, next) => {
-        console.log(req.body)
-        res.send(req.body);
-    })
 
 // route protégé par authorization par session
 router.get('/admin/liste', (req, res, next) => {

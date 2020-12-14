@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 //importing
 const express = require("express");
 const exphbs = require("express-handlebars");
@@ -7,7 +9,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
-const cors = require("cors")
+const cors = require("cors");
+
 
 //models
 const User = require('./models/user');
@@ -76,7 +79,7 @@ passport.deserializeUser(User.deserializeUser());
 
 // declaration de toutes les routes de l'api
 app.use('/auth', authRoute(passport, User));
-app.use('/creation', postsRoute(passport, Posts));
+app.use('/', postsRoute(passport, Posts));
 app.use('/', viewRoute);
 
 app.listen(port, () => {
