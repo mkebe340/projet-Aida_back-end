@@ -23,7 +23,7 @@ const postsRoute = require('./controllers/creation.js');
 
 
 //app config
-const port = 3000;
+// const port = 3000; ==> dotenv
 
 //DB config 
 const connection_url = "mongodb://localhost:27017/aidaDB"
@@ -82,7 +82,7 @@ app.use('/auth', authRoute(passport, User));
 app.use('/', postsRoute(passport, Posts));
 app.use('/', viewRoute);
 
-app.listen(port, () => {
-    console.log(`Server started on port: ${port}`)
+app.listen(process.env.PORT, () => { // dépend du port spécifié dans .env
+    console.log(`Server started on port: ${process.env.PORT}`)
 });
 
