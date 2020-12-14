@@ -2,20 +2,12 @@ const express = require('express');
 const multer = require('multer');
 const router = express.Router();
 
-<<<<<<< HEAD
-
-const uploader = require ('../config/fileUploader.js');
-=======
->>>>>>> c2dc6a147b0369498954bac207a9360ad5d219be
 
 const uploader = require ('../config/fileUploader.js');
 
 
-<<<<<<< HEAD
-=======
 module.exports = function (passport, Posts) {
 
->>>>>>> c2dc6a147b0369498954bac207a9360ad5d219be
     router.get('/admin/liste', async (req, res, next) => {
         try {
             const posts = await Posts.find({}).lean().exec()
@@ -48,3 +40,30 @@ module.exports = function (passport, Posts) {
 
         }
     });
+
+
+
+
+
+    // Récupération des posts (articles) dans la db
+    router.get('/admin/liste', (req, res, next) => {
+        postModel.find()
+            .then(posts => {
+                res.render('admin/liste', {
+                    posts
+                })
+            })
+            .catch(dbErr => next(dbErr));
+    });
+
+    // Récupération des posts à modifier
+    router.get('/admin/liste/modification/:id', (req, res, next) => {
+        postModel.findById(req.param.id)
+            .then(post => res.render("/admin/creation/modification", {
+                posts
+            }))
+            .catch(dbErr => next(dbErr));
+    });
+
+    return router
+};
