@@ -15,10 +15,19 @@
 
   <h1> Créer un article</h1>
 
-  <form enctype='multipart/form-data' action='/uploads' method='POST'>
+  <form enctype='multipart/form-data' action='/admin/creation' method='POST'>
     <input type="text" placeholder="Titre de l'article" name="titre" value="Titre de l'article" />
     <input type="text" placeholder="Description" name="description" value="Description" />
     <input type="file" name='image' />
+    
+    <label for="type-select">Choisir un type:</label>
+
+    <select name="type" id="type-select">
+        <option value="publication">Publication</option>
+        <option value="portrait">Portrait</option>
+        <option value="association">Association</option>
+    </select>
+
     <!--  insérer un champs pour catégoriser et associer couleur au thème-->
     <!--<input type="color" name="Color" value="Couleur" />
 

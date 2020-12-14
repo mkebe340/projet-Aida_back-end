@@ -2,40 +2,43 @@ const express = require('express');
 const multer = require('multer');
 const router = express.Router();
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'public/uploads')
-    },
-    filename: function (req, file, cb) {
-        const { username } = req.body;
-        // username_data
-        const date = new Date();
-        const dateYYYYMMDD = date.toISOString().substring(0, 10);
-        console.log('dateYYYYMMDD', dateYYYYMMDD);
-        const extension = file.originalname.split('.').pop();
-        const filename = `${username}_${dateYYYYMMDD}.${extension}`;
-        cb(null, filename);
-    }
-})
 
-const upload = multer({ storage: storage });
+const uploader = require ('../config/fileUploader.js');
 
 
 module.exports = function (passport, Posts) {
 
-
-    router.post('/uploads', upload.single('image'), async (req, res) => {
+    router.get('/admin/liste', async (req, res, next) => {
         try {
+            const posts = await Posts.find({}).lean().exec()
+            console.log(liste)
+            res.render('admin/liste', {
+                posts,
+                isAuthenticated: req.isAuthenticated(),
+                username: req.isAuthenticated() ? req.user.username: null
+            })
+        } catch(err) {
+            res.status(500).send(err)
+        }
+        
+    })
+
+
+    router.post('/admin/creation', uploader.single('image'), async (req, res) => {
+        try { 
             const resultat = await Posts.create({
+                type: req.body.type,
                 titre: req.body.titre,
                 description: req.body.description,
                 texte: req.body.texte,
-                imageUrl: `http://localhost:3000/uploads/${req.file.filename}`
-            }).exec()
-            res.send(resultat);
-            console.log (req.file)
+                imageUrl: req.file.path
+            })
+
+            res.redirect('liste');
         } catch(err) {
+            console.log(err)
             res.status(500).send(err);
+
         }
     });
 

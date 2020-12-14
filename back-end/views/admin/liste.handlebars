@@ -3,6 +3,7 @@
 <button type="btn">RETOUR SUR LE SITE</button>
 
 <h1>Mes publications</h1>
+{{#each liste}}
 <div class="card" style="width: 18rem;">
     <a href="/article/{{this._id}}"></a>
     <div class="post-body">
@@ -16,3 +17,5 @@
         </button>
     </div>
 </div>
+
+{{#each}}

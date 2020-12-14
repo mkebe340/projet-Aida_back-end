@@ -1,4 +1,5 @@
-const cloudinary = require('cloudinary');
+const cloudinary = require('cloudinary').v2;
+const {CloudinaryStorage} = require('multer-storage-cloudinary');
 const multer = require('multer');
 
 cloudinary.config({
@@ -6,13 +7,15 @@ cloudinary.config({
     api_key: process.env.CLOUDINARY_KEY,
     api_secret: process.env.CLOUDINARY_SECRET
 });
-const storage = cloudinaryStorage({
+
+const storage = new CloudinaryStorage({
     cloudinary,
-    folder: 'aidaBlog'
-    
+    params: { folder : () => 'aidaBlog'}
 });
-const fileUploader = multer({
+
+const uploader = multer({
     storage
 });
 
-module.exports = fileUploader;
+
+module.exports = uploader;
