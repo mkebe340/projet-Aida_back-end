@@ -1,0 +1,53 @@
+<body>
+
+  <button type="btn">
+    <a href="">
+      RETOUR SUR LE SITE
+    </a>
+  </button>
+
+  <h3>Modifier l'article</h3>
+
+  <form enctype='multipart/form-data' action='/admin/liste/modification/:id' method='POST'>
+      <input type="text" placeholder="Type d'article" name="type" value={{this.type}} />
+    <input type="text" placeholder="Titre de l'article" name="titre" value={{this.titre}} />
+    <input type="text" placeholder="Description" name="description" value={{this.description}} />
+    <!--  insérer un champs pour catégoriser et associer couleur au thème-->
+    <!--<input type="color" name="Color" value="Couleur" />
+
+    <input type="file" name='image' />
+
+    <input type="file" name='multimédia' />-->
+    <textarea id="content" name="texte" placeholder="Écrire votre article..."></textarea>
+    <button type="submit">PUBLIER</button>
+
+    <!-- WYSIWYG -->
+    <script src="https://cdn.tiny.cloud/1/n268b6up9mbq4dpqsrnu7p6mkazxczwuxvatwgb64uvvnrr1/tinymce/5/tinymce.min.js"
+      referrerpolicy="origin">
+      </script>
+    <script type="text/javascript">
+      tinymce.init({
+        selector: '#content',
+        width: 600,
+        height: 300,
+        plugins: [
+          'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+          'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+          'table emoticons template paste help'
+        ],
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+          'bullist numlist outdent indent | link image | print preview media fullpage | ' +
+          'forecolor backcolor emoticons | help',
+        menu: {
+          favs: { title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons' }
+        },
+        menubar: 'favs file edit view insert format tools table help',
+        content_css: [
+          '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+          '//www.tinymce.com/css/codepen.min.css'
+        ]
+      });
+    </script>
+  </form>
+</body>
+
