@@ -31,15 +31,47 @@ module.exports = function (passport, Posts) {
                 titre: req.body.titre,
                 description: req.body.description,
                 texte: req.body.texte,
+<<<<<<< HEAD
                 imageUrl: req.file.path
             })
 
             res.redirect('liste');
         } catch(err) {
             console.log(err)
+=======
+                imageUrl: `http://localhost:3000/uploads/${req.file.filename}`
+            }).exec()
+            res.send(resultat);
+            console.log(req.file)
+        } catch (err) {
+>>>>>>> ba9b8409922f216fe0d1b127fa3b8a3c9b278842
             res.status(500).send(err);
 
         }
+    });
+
+
+
+
+
+    // Récupération des posts (articles) dans la db
+    router.get('/admin/liste', (req, res, next) => {
+        postModel.find()
+            .then(posts => {
+                res.render('admin/liste', {
+                    posts
+                })
+            })
+            .catch(dbErr => next(dbErr));
+    });
+
+    // Récupération des posts à modifier
+    router.get('/admin/liste/modification/:id', (req, res, next) => {
+        postModel.findById(req.param.id)
+            .then(post => res.render("/admin/creation/modification", {
+                posts
+            }))
+            .catch(dbErr => next(dbErr));
     });
 
     return router
