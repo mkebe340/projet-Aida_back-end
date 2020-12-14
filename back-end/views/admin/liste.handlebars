@@ -1,22 +1,62 @@
-<h1>{{title}}</h1>
+ <h1>{{title}}</h1>
 
-<button type="btn">RETOUR SUR LE SITE</button>
+ <button type="btn">
+        <a href="/">
+            RETOUR SUR LE SITE
+        </a>
+    </button>
 
-<h1>Mes publications</h1>
-{{#each liste}}
-<div class="card" style="width: 18rem;">
-    <a href="/article/{{this._id}}"></a>
-    <div class="post-body">
-        <h5 class="card-title">{{this.title}}</h5>
+<h3>Mes publications</h3> -->
 
-        <button type="modify-btn">Modifier</button>
-        <button type="delete-btn">Supprimer</button>
-        <button type="create-btn">
-            <a href="/admin/creation">
-                Créer un nouvel article
-            </a>
+
+<!-- Associer bouton edit et delete à chaque article  -->
+{{#each posts}}
+<tr class="table-row">
+    <td class="table-posts">
+        <div>{{this.titre}}</div>
+    </td>
+    <td class="table-posts">
+        <div>{{this.type}}</div>
+    </td>
+    <td class="table-posts">
+        <div>{{this.date}}</div>
+    </td>
+    <td class="table-division">
+        <button type="btn">
+        <a href="admin/creation/modification/{{this._id}}" data-id-post="{{this._id}}" class="fas fa-edit">
+        </a>
         </button>
-    </div>
-</div>
+    </td>
+    <td class="table-division">
+        <a href="admin/creation/suppression/{{this._id}}" data-id-post="{{this._id}}" class="fa fa-trash">
+        </a>
+    </td>
+</tr>
+{{/each}}
 
-{{#each}}
+{{#unless posts}}
+<tr>
+    <td colspan="">
+        Il n'y a pas d'article pour l'instant
+    </td>
+</tr>
+{{/unless}}
+
+<!--  <div class="card" style="width: 18rem;">
+<a href="/article/{{this._id}}"></a>
+<div class="post-body">
+<h5 class="card-title">{{this.title}}</h5>  -->
+
+<button type="create-btn">
+    <a href="/admin/creation">
+        Créer un nouvel article
+    </a>
+</button>
+</div>
+</div> 
+
+
+
+
+
+
