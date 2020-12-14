@@ -1,7 +1,7 @@
 <body>
 
   <button type="btn">
-    <a href="">
+    <a href="/">
       RETOUR SUR LE SITE
     </a>
   </button>
@@ -12,13 +12,14 @@
       <input type="text" placeholder="Type d'article" name="type" value={{this.type}} />
     <input type="text" placeholder="Titre de l'article" name="titre" value={{this.titre}} />
     <input type="text" placeholder="Description" name="description" value={{this.description}} />
+
     <!--  insérer un champs pour catégoriser et associer couleur au thème-->
     <!--<input type="color" name="Color" value="Couleur" />
 
     <input type="file" name='image' />
 
     <input type="file" name='multimédia' />-->
-    <textarea id="content" name="texte" placeholder="Écrire votre article..."></textarea>
+    <textarea id="content" name="texte" placeholder="Écrire votre article..." value={{this.texte}}></textarea>
     <button type="submit">PUBLIER</button>
 
     <!-- WYSIWYG -->
