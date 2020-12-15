@@ -1,5 +1,4 @@
 body {
-    font-family: 'Open Sans', sans-serif;
     font-family: 'Sansita', sans-serif;
 }
 
@@ -7,10 +6,12 @@ h1 {
     font-size: 24px;
     color: rgb(63, 63, 63);
     margin-bottom: 30px;
+    font-family: 'Sansita', sans-serif;
 }
 
 h3 {
     font-size: 17px;
     color: rgb(116, 116, 116);
     margin-bottom: 30px;
+    font-family: 'Sansita', sans-serif;
 }
