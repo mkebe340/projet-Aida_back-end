@@ -43,10 +43,10 @@ mongoose.connect(connection_url, {
         console.log(err);
     });
 
-// config. des CORS
-app.use(cors())
 
 const app = express();
+
+app.use(cors())
 // express config
 app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
