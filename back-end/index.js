@@ -46,7 +46,9 @@ mongoose.connect(connection_url, {
 
 const app = express();
 
+// cors config 
 app.use(cors())
+
 // express config
 app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
