@@ -12,7 +12,7 @@ const postSchema = new mongoose.Schema({
     titre: {
         type: String,
         required: true,
-        index : true
+        index: true
     },
     description: {
         type: String,

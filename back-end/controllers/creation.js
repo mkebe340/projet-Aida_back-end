@@ -3,7 +3,7 @@ const multer = require('multer');
 const router = express.Router();
 
 
-const uploader = require ('../config/fileUploader.js');
+const uploader = require('../config/fileUploader.js');
 
 
 module.exports = function (passport, Posts) {
@@ -16,19 +16,19 @@ module.exports = function (passport, Posts) {
             res.render('admin/liste', {
                 posts,
                 isAuthenticated: req.isAuthenticated(),
-                username: req.isAuthenticated() ? req.user.username: null
+                username: req.isAuthenticated() ? req.user.username : null
             })
-        } catch(err) {
+        } catch (err) {
             console.log("error :", err)
 
             res.status(500).send(err)
         }
-        
+
     })
 
 
     router.post('/admin/creation', uploader.single('image'), async (req, res) => {
-        try { 
+        try {
             const resultat = await Posts.create({
                 type: req.body.type,
                 titre: req.body.titre,
