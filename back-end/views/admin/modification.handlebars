@@ -1,3 +1,7 @@
+<head>
+  <link rel="stylsheet" href="../../public/css/modification.css">
+</head>
+
 <body>
 
   <button type="btn">
@@ -9,7 +13,7 @@
   <h3>Modifier l'article</h3>
 
   <form enctype='multipart/form-data' action='/liste/modification/:id' method='POST'>
-      <input type="text" placeholder="Type d'article" name="type" value={{this.type}} />
+    <input type="text" placeholder="Type d'article" name="type" value={{this.type}} />
     <input type="text" placeholder="Titre de l'article" name="titre" value={{this.titre}} />
     <input type="text" placeholder="Description" name="description" value={{this.description}} />
 
@@ -51,4 +55,3 @@
     </script>
   </form>
 </body>
-
