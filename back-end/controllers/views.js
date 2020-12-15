@@ -3,7 +3,6 @@ const router = express.Router();
 const uploader = require('../config/fileUploader')
 
 
-module.exports = function (passport, Posts) {
 
 router.get('/admin/signup', (req, res, next) => {
     res.render('admin/signup');
@@ -74,7 +73,21 @@ router.post('/admin/liste/suppression/:id', (req, res, next) => {
     })
     .catch(dbErr => next(dbErr));
     });
+
+
+    router.get('/articles', async (req, res, next) => {
+        console.log(posts)
+        try {
+            const posts = await Posts.find({}).lean().exec()
+            console.log("liste")
+            res.json(posts)
+        } catch(err) {
+            console.log("error :", err)
+    
+            res.status(500).send(err)
+        }
+        
+    })
     
    
-    return router
-};
+    module.exports = router;
