@@ -3,11 +3,11 @@ const passportLocalMongoose = require('passport-local-mongoose');
 
 // Configuration Mongoose model for user
 const schema = new mongoose.Schema({
-    email : {
-        type : String,
-        trim : true,
-        unique : true,
-        required : true
+    email: {
+        type: String,
+        trim: true,
+        unique: true,
+        required: true
     }
 });
 
