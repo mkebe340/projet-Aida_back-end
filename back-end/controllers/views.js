@@ -56,23 +56,26 @@ router.get('/admin/login', (req, res, next) => {
     .catch(dbErr => next(dbErr));
     });
 
-    router.post('/admin/liste/modification/:id', uploader.single('image'), async (req, res) => {
+    router.put('/admin/liste/modification/:id', uploader.single('image'), async (req, res) => {
         const posts = req.body;
-    if (req.file) posts.image = req.file.secure_url;
+
+    if (req.file) posts.imageUrl = req.file.secure_url;
+
     Posts.findByIdAndUpdate(req.params.id, posts)
         .then(dbRes => res.redirect('liste'))
         .catch(dbErr => next(dbErr));
     });
 
 
-router.post('/admin/liste/suppression/:id', (req, res, next) => {
+router.delete('/admin/liste/suppression/:id', (req, res, next) => {
     Posts.findByIdAndDelete(req.params.id)
     .then(posts => {
-    res.redirect('liste'
-    )
-    })
+    res.redirect('liste')
+    
+        })
     .catch(dbErr => next(dbErr));
-    });
+   
+        });
 
 
     router.get('/articles', async (req, res, next) => {
