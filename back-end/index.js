@@ -23,7 +23,7 @@ const postsRoute = require('./controllers/creation.js');
 
 
 //app config
-// const port = 3000; ==> dotenv
+//const port = 3000; => dotenv
 
 //DB config 
 const connection_url = "mongodb://localhost:27017/aidaDB"

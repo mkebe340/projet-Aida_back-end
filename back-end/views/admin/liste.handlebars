@@ -22,14 +22,16 @@
         <div>{{this.date}}</div>
     </td>
     <td class="table-division">
-        <button type="btn">
-        <a href="admin/creation/modification/{{this._id}}" data-id-post="{{this._id}}" class="fas fa-edit">
+        <button type="btn" action='/admin/liste/modification/' method='POST'> 
+        <a href="liste/modification/{{this._id}}" data-id-post="{{this._id}}" class="fas fa-edit">
         </a>
         </button>
     </td>
     <td class="table-division">
-        <a href="admin/creation/suppression/{{this._id}}" data-id-post="{{this._id}}" class="fa fa-trash">
+        <button type="btn" action='/admin/liste/suppression/' method='POST'> 
+        <a href="liste/suppression/{{this._id}}" data-id-post="{{this._id}}" class="fa fa-trash">
         </a>
+        </button>
     </td>
 </tr>
 {{/each}}

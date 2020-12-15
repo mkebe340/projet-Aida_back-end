@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const uploader = require('../config/fileUploader')
 
+
+module.exports = function (passport, Posts) {
+
 router.get('/admin/signup', (req, res, next) => {
     res.render('admin/signup');
 })
@@ -47,31 +50,31 @@ router.get('/admin/login', (req, res, next) => {
 
  // Récupération des posts à modifier
  router.get('/admin/liste/modification/:id', (req, res, next) => {
-    postModel.findById(req.params.id)
-    .then(post => res.render("/admin/creation/modification", {
-    post
+    Posts.findById(req.params.id)
+    .then(posts => res.render("liste/modification", {
+    posts
     }))
     .catch(dbErr => next(dbErr));
     });
 
     router.post('/admin/liste/modification/:id', uploader.single('image'), async (req, res) => {
-        const post = req.body;
-    if (req.file) post.image = req.file.secure_url;
-    postModel.findByIdAndUpdate(req.params.id, post)
-        .then(dbRes => res.redirect('/admin/liste'))
+        const posts = req.body;
+    if (req.file) posts.image = req.file.secure_url;
+    Posts.findByIdAndUpdate(req.params.id, posts)
+        .then(dbRes => res.redirect('liste'))
         .catch(dbErr => next(dbErr));
     });
 
 
-router.get('/admin/liste/suppression/:id', (req, res, next) => {
-    postModel.findByIdAndDelete(req.params.id)
+router.post('/admin/liste/suppression/:id', (req, res, next) => {
+    Posts.findByIdAndDelete(req.params.id)
     .then(posts => {
-    res.redirect('/admin/liste'
+    res.redirect('liste'
     )
     })
     .catch(dbErr => next(dbErr));
     });
     
    
-    
-module.exports = router;
+    return router
+};
