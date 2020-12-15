@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const uploader = require('../config/fileUploader')
+const uploader = require('../config/fileUploader');
+
+const Posts = require('../models/postsSchema');
 
 
 
@@ -68,11 +70,11 @@ router.put('/admin/liste/modification/:id', uploader.single('image'), async (req
 });
 
 
-router.delete('/admin/liste/suppression/:id', (req, res, next) => {
-    Posts.findByIdAndDelete(req.params.id)
+router.post('/admin/liste/suppression/', (req, res, next) => {
+    console.log('je suis au delete')
+    Posts.findByIdAndDelete(req.body.id)
         .then(posts => {
-            res.redirect('liste'
-            )
+            res.redirect('/admin/liste')
         })
         .catch(dbErr => next(dbErr));
 });
