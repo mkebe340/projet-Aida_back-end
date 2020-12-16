@@ -34,7 +34,7 @@ module.exports = function (passport, Posts) {
                 titre: req.body.titre,
                 description: req.body.description,
                 texte: req.body.texte,
-                imageUrl: `http://localhost:3001/uploads/${req.file.filename}`
+                imageUrl: `http://localhost:3000/uploads/${req.file.filename}`
             }).exec()
             res.send(resultat);
             console.log(req.file)

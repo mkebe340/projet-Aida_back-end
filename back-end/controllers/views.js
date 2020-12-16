@@ -50,22 +50,22 @@ router.get('/admin/login', (req, res, next) => {
 // Récupération des posts (articles) dans la db
 
 // Récupération des posts à modifier
-router.get('/admin/liste/modification/:id', (req, res, next) => {
-    Posts.findById(req.params.id)
-        .then(posts => res.render("liste/modification", {
+router.get('/admin/liste/modification/', (req, res, next) => {
+    Posts.findById(req.body.id)
+        .then(posts => res.render("admin/modification", {
             posts
         }))
         .catch(dbErr => next(dbErr));
 });
 
 
-router.put('/admin/liste/modification/:id', uploader.single('image'), async (req, res) => {
+router.post('/admin/liste/modification/', uploader.single('image'), async (req, res) => {
     const posts = req.body;
 
     if (req.file) posts.imageUrl = req.file.secure_url;
 
-    Posts.findByIdAndUpdate(req.params.id, posts)
-        .then(dbRes => res.redirect('liste'))
+    Posts.findByIdAndUpdate(req.body.id, posts)
+        .then(dbRes => res.redirect('/admin/liste'))
         .catch(dbErr => next(dbErr));
 });
 
@@ -81,7 +81,6 @@ router.post('/admin/liste/suppression/', (req, res, next) => {
 
 
 router.get('/articles', async (req, res, next) => {
-    console.log(posts)
     try {
         const posts = await Posts.find({}).lean().exec()
         console.log("liste")
