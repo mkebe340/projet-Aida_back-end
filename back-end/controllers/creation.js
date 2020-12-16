@@ -29,15 +29,16 @@ module.exports = function (passport, Posts) {
 
     router.post('/admin/creation', uploader.single('image'), async (req, res) => {
         try {
+            console.log(req.file)
             const resultat = await Posts.create({
                 type: req.body.type,
                 titre: req.body.titre,
                 description: req.body.description,
                 texte: req.body.texte,
-                imageUrl: `http://localhost:3000/uploads/${req.file.filename}`
+                imageUrl: req.file.path
             }).exec()
             res.send(resultat);
-            console.log(req.file)
+        
         } catch (err) {
             res.status(500).send(err);
 

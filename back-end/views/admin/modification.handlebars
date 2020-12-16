@@ -2,6 +2,8 @@
 
 <body>
 
+
+
   <button type="btn">
     <a href="/">
       RETOUR SUR LE SITE
@@ -11,9 +13,9 @@
   <h3>Modifier l'article</h3>
 
   <form enctype='multipart/form-data' action='/admin/liste/modification' method='POST'>
-    <input type="text" placeholder="Type d'article" name="type" value={{this.type}} />
-    <input type="text" placeholder="Titre de l'article" name="titre" value={{this.titre}} />
-    <input type="text" placeholder="Description" name="description" value={{this.description}} />
+    <input type="text" placeholder="Type d'article" name="type" value={{post.type}} />
+    <input type="text" placeholder="Titre de l'article" name="titre" value={{post.titre}} />
+    <input type="text" placeholder="Description" name="description" value={{post.description}} />
 
     <!--  insérer un champs pour catégoriser et associer couleur au thème-->
     <!--<input type="color" name="Color" value="Couleur" />
@@ -21,7 +23,7 @@
     <input type="file" name='image' />
 
     <input type="file" name='multimédia' />-->
-    <textarea id="content" name="texte" placeholder="Écrire votre article..." value={{this.texte}}></textarea>
+    <textarea id="content" name="texte" placeholder="Écrire votre article..." value={{post.texte}}></textarea>
     <button type="submit">PUBLIER</button>
 
     <!-- WYSIWYG -->
@@ -48,8 +50,15 @@
         content_css: [
           '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
           '//www.tinymce.com/css/codepen.min.css'
-        ]
+        ],
+        oninit: loadEditorContent
       });
+
+      function loadEditorContent () {
+        console.log('mmm')
+           tinymce.activeEditor.setContent(post.texte);
+      }
+
     </script>
   </form>
 </body>

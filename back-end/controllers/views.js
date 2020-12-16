@@ -50,10 +50,11 @@ router.get('/admin/login', (req, res, next) => {
 // Récupération des posts (articles) dans la db
 
 // Récupération des posts à modifier
-router.get('/admin/liste/modification/', (req, res, next) => {
-    Posts.findById(req.body.id)
-        .then(posts => res.render("admin/modification", {
-            posts
+router.get('/admin/liste/modification/:id', (req, res, next) => {
+    console.log(req.params.id)
+    Posts.findById(req.params.id).lean().exec()
+        .then(post => res.render("admin/modification", {
+            post
         }))
         .catch(dbErr => next(dbErr));
 });
