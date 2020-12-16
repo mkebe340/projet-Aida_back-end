@@ -3,15 +3,26 @@ body {
 }
 
 h1 {
-    background-color: gray;
+    color: rgb(80, 80, 80);
 }
 
 
 h3 {
-    font-size: 17px;
-    color: rgb(30, 240, 135);
+    color: rgb(130, 131, 130);
     margin-bottom: 30px;
     font-family: 'Sansita', sans-serif;
 }
 
+.btn {
+    box-shadow: 3px 1px 3px 3px 2em rgba(151, 151, 151, 0.445);
+}
 
+.wysiwyg {
+    display: flex;
+    justify-content: center;
+}
+
+.creation-btn-publier {
+    display: flex;
+    justify-content: center;
+}

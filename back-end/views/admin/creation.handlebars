@@ -1,14 +1,14 @@
-<head >
+<head>
   <link rel="stylsheet" href="../../public/css/creation.css">
-  </head>
+</head>
 
 
 <div class="row align-items-start">
-  <div class="col-9 titre">
-    <h1 class="titre" >{{title}}</h1>
+  <div class="col-9 titre mt-2 mb-3 ml-5">
+    <h1 class="titre">{{title}}</h1>
   </div>
   <div class="col">
-    <a href="/" class="btn btn-outline-primary">
+    <a href="/" class="btn btn-outline-primary mt-4 mb-3 mr-5">
       RETOUR SUR LE SITE
     </a>
   </div>
@@ -17,7 +17,7 @@
 
 
 <div class="container sous-titre">
-  <div class="row">
+  <div class="row justify-content-around mb-3">
     <div class="col">
     </div>
     <div class="col">
@@ -33,94 +33,89 @@
 
 
 <div class="container creation">
-  <div class="col">
-  </div>
   <form enctype='multipart/form-data' action='/admin/creation' method='POST'>
-    <div class="row">
-      <div class="col">
-    </div>
-      <div class="col">
+    <div class="row justify-content-center mb-3">
+      <div class="col-4">
         <input type="text" placeholder="Titre de l'article" name="titre" value="Titre de l'article" />
       </div>
-      <div class="col">
+      <div class="col-4">
         <input type="text" placeholder="Description" name="description" value="Description" />
       </div>
-      <div class="col">
-    </div>
     </div>
 
-    <div class="row">
-      <div class="col">
+</div>
+
+<div class="row justify-content-center mb-5">
+  <div class="col-4 ml-5">
+    <input type="file" name='image' />
+  </div>
+  <div class="col-4">
+    <label for="type-select">Choisir un type:</label>
+    <select name="type" id="type-select">
+      <option value="publication">Publication</option>
+      <option value="portrait">Portrait</option>
+      <option value="association">Association</option>
+    </select>
+  </div>
+</div>
+
+
+<div class="container wysiwyg">
+  <div class="row">
+    <div class="col">
     </div>
-      <div class="col">
-        <input type="file" name='image' />
-      </div>
-      <div class="col">
-        <label for="type-select">Choisir un type:</label>
-        <select name="type" id="type-select">
-          <option value="publication">Publication</option>
-          <option value="portrait">Portrait</option>
-          <option value="association">Association</option>
-        </select>
-      </div>
-      <div class="col">
+    <div class="col">
+      <textarea id="content" name="texte">Écrire votre article...</textarea>
+
+      <script src="https://cdn.tiny.cloud/1/n268b6up9mbq4dpqsrnu7p6mkazxczwuxvatwgb64uvvnrr1/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin">
+        </script>
+      <script type="text/javascript">
+        tinymce.init({
+          selector: '#content',
+          width: 600,
+          height: 300,
+          plugins: [
+            'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+            'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+            'table emoticons template paste help'
+          ],
+          toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+            'bullist numlist outdent indent | link image | print preview media fullpage | ' +
+            'forecolor backcolor emoticons | help',
+          menu: {
+            favs: { title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons' }
+          },
+          menubar: 'favs file edit view insert format tools table help',
+          content_css: [
+            '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+            '//www.tinymce.com/css/codepen.min.css'
+          ]
+        });
+      </script>
     </div>
+    <div class="col">
     </div>
+  </div>
+</div>
 
 
-    <div class="container wysiwyg">
-      <div class="row">
-        <div class="col">
-        </div>
-        <div class="col">
-          <textarea id="content" name="texte">Écrire votre article...</textarea>
+<div class="container creation-btn-publier">
 
-          <script
-            src="https://cdn.tiny.cloud/1/n268b6up9mbq4dpqsrnu7p6mkazxczwuxvatwgb64uvvnrr1/tinymce/5/tinymce.min.js"
-            referrerpolicy="origin">
-            </script>
-          <script type="text/javascript">
-            tinymce.init({
-              selector: '#content',
-              width: 600,
-              height: 300,
-              plugins: [
-                'advlist autolink link image lists charmap print preview hr anchor pagebreak',
-                'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-                'table emoticons template paste help'
-              ],
-              toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
-                'bullist numlist outdent indent | link image | print preview media fullpage | ' +
-                'forecolor backcolor emoticons | help',
-              menu: {
-                favs: { title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons' }
-              },
-              menubar: 'favs file edit view insert format tools table help',
-              content_css: [
-                '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
-                '//www.tinymce.com/css/codepen.min.css'
-              ]
-            });
-          </script>
-        </div>
-        <div class="col">
-        </div>
-      </div>
+  <div class="row">
+    <div class="col mt-2">
+      <button type="submit" class="btn btn-primary btn-lg">PUBLIER</button>
+    </div>
+  </div>
+</div>
 
-      <div class="row">
-        <div class="col">
-        </div>
-        <div class="col">
-          <button type="submit" class="btn btn-primary">PUBLIER</button>
-        </div>
-      </div>
 
-      <!--  insérer un champs pour catégoriser et associer couleur au thème-->
-      <!--<input type="color" name="Color" value="Couleur" />
+<!--  insérer un champs pour catégoriser et associer couleur au thème-->
+<!--<input type="color" name="Color" value="Couleur" />
     <input type="file" name='image' />
     <input type="file" name='multimédia' />-->
 
 
-      <!-- WYSIWYG -->
+<!-- WYSIWYG -->
 
-  </form>
+</form>
