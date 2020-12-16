@@ -2,15 +2,21 @@
 
 <body>
 
-<h1>{{title}}</h1>
+<div class="container">
 
-<h1>Signup</h1>
-<form action='/auth/signup' method='POST'>
+<div class="row justify-content-md-center">
+<h1>S'inscrire en tant qu'administrateur unique</h1>
+</div>
+
+<div class="row justify-content-md-center">
+<form action='/auth/signup' method='POST' class="mb-3 row">
   <input type="email" placeholder="Email" name="email" value="aida@outlook.fr" />
   <input type="password" placeholder="Password" name="password">
   <input type="password" placeholder="Confirm password" name="confirm_password">
-  <button type="submit">Submit</button>
+  <button type="submit" class="btn btn-primary">S'inscrire</button>
 </form>
+</div>
 
+</div>
 
 </body>
