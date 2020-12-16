@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-  <link rel="stylsheet" href="../../public/css/creation.css">
-</head>
+  <div class="titre">
+    <h1>{{title}}</h1>
+  </div>
 
-<body>
-  <h1>{{title}}</h1>
-
-  <button type="btn">
-    <a href="/">
+  <div classe="btn retour-site"><button type="btn">
+    <a href="/" class="btn btn-primary">
       RETOUR SUR LE SITE
     </a>
   </button>
+  </div>
 
-  <h1> Créer un article</h1>
+  <div><h1> Créer un article</h1></div>
 
   <form enctype='multipart/form-data' action='/admin/creation' method='POST'>
     <input type="text" placeholder="Titre de l'article" name="titre" value="Titre de l'article" />
@@ -64,6 +60,3 @@
       });
     </script>
   </form>
-</body>
-
-</html>
