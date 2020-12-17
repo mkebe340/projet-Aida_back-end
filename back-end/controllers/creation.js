@@ -6,9 +6,9 @@ const router = express.Router();
 const uploader = require('../config/fileUploader.js');
 
 
-module.exports = function (passport, Posts) {
+module.exports = function(passport, Posts) {
 
-    router.get('/admin/liste', async (req, res, next) => {
+    router.get('/admin/liste', async(req, res, next) => {
         try {
             const posts = await Posts.find({}).lean().exec()
             console.log("liste")
@@ -25,24 +25,23 @@ module.exports = function (passport, Posts) {
 
     })
 
-
-    router.post('/admin/creation', uploader.single('image'), async (req, res) => {
+    router.post('/admin/creation', uploader.single('image'), async(req, res) => {
         try {
             const resultat = await Posts.create({
                 type: req.body.type,
                 titre: req.body.titre,
                 description: req.body.description,
                 texte: req.body.texte,
-                imageUrl: req.file.path
+                imageUrl: req.file ? req.file.path : ''
             })
- 
             res.redirect('/admin/liste')
-        
+
         } catch (err) {
-            res.status(500).send(err);
+            res.status(500).json(err);
+            console.log(err)
 
         }
-    });
+    })
 
 
     return router

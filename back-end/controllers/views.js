@@ -60,7 +60,7 @@ router.get('/admin/liste/modification/:id', (req, res, next) => {
 });
 
 
-router.post('/admin/liste/modification/', uploader.single('image'), async (req, res) => {
+router.post('/admin/liste/modification/', uploader.single('image'), async(req, res) => {
     const posts = req.body;
 
     if (req.file) posts.imageUrl = req.file.secure_url;
@@ -81,10 +81,10 @@ router.post('/admin/liste/suppression/', (req, res, next) => {
 });
 
 
-router.get('/articles', async (req, res, next) => {
+router.get('/articles', async(req, res, next) => {
     try {
         const posts = await Posts.find({}).lean().exec()
-        console.log("liste")
+        console.log(posts)
         res.json(posts)
     } catch (err) {
         console.log("error :", err)
