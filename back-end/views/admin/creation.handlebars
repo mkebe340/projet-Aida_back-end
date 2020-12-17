@@ -3,12 +3,12 @@
 </head>
 
 
-<div class="row align-items-start">
-  <div class="col-9 titre mt-2 mb-3 ml-5">
-    <h1 class="titre">{{title}}</h1>
+<div >
+  <div>
+    <h1 class="titreCreation">{{title}}</h1>
   </div>
   <div class="col">
-    <a href="/" class="btn btn-outline-primary mt-4 mb-3 mr-5">
+    <a href="/" class="btn btn-outline-primary boutonRetour">
       RETOUR SUR LE SITE
     </a>
   </div>
@@ -18,16 +18,19 @@
 
 <div class="container sous-titre">
   <div class="row justify-content-around mb-3">
+    <svg class="diagonale" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800">
+    <path fill="#72adf0b4" fill-opacity="1" d="M0,100L1440,400L1440,800L0,800Z"></path>
+  </svg>
     <div class="col">
-    </div>
-    <div class="col">
-      <h3> Créer un article</h3>
     </div>
     <div class="col">
     </div>
   </div>
 </div>
 <div>
+      <div class="titre">
+      <h3> Créer un article</h3>
+    </div>
 </div>
 
 
@@ -45,7 +48,7 @@
 
 </div>
 
-<div class="row justify-content-center mb-5">
+<div class="row creation-elements justify-content-center mb-5">
   <div class="col-4 ml-5">
     <input type="file" name='image' />
   </div>
@@ -61,11 +64,12 @@
 
 
 <div class="container wysiwyg">
+  
   <div class="row">
     <div class="col">
     </div>
     <div class="col">
-      <textarea id="content" name="texte">Écrire votre article...</textarea>
+      <textarea class="editor" id="content" name="texte">Écrire votre article...</textarea>
 
       <script src="https://cdn.tiny.cloud/1/n268b6up9mbq4dpqsrnu7p6mkazxczwuxvatwgb64uvvnrr1/tinymce/5/tinymce.min.js"
         referrerpolicy="origin">
@@ -73,7 +77,7 @@
       <script type="text/javascript">
         tinymce.init({
           selector: '#content',
-          width: 600,
+          width: 700,
           height: 300,
           plugins: [
             'advlist autolink link image lists charmap print preview hr anchor pagebreak',

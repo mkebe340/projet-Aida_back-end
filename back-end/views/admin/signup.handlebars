@@ -2,19 +2,27 @@
 
 <body>
 
-<div class="container">
+                 <svg class="diagonale" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800">
+    <path fill="#72adf0b4" fill-opacity="1" d="M0,100L1440,400L1440,800L0,800Z"></path></svg>
 
-<div class="row justify-content-md-center">
+<div>
+
+    <div class="row justify-content-md-center titrelog">
+    <h1>InspireNews.fr</h1>
+  </div>
+
+<div class="titreSign">
 <h1>S'inscrire en tant qu'administrateur unique</h1>
 </div>
 
-<div class="row justify-content-md-center">
-<form action='/auth/signup' method='POST' class="mb-3 row">
-  <input type="email" placeholder="Email" name="email" value="aida@outlook.fr" />
-  <input type="password" placeholder="Password" name="password">
-  <input type="password" placeholder="Confirm password" name="confirm_password">
-  <button type="submit" class="btn btn-primary">S'inscrire</button>
+<div class="formsign">
+<form action='/auth/signup' method='POST' >
+  Identifiant : <input type="email" placeholder="Email" name="email" value="aida@outlook.fr" />
+  Mot de passe : <input type="password" placeholder="Mot de passe" name="password" >
+  <input type="password" placeholder="Confirmer le mot de passe" name="confirm_password" >
+  <button type="submit" class="btn btn-primary btnS">S'inscrire</button>
 </form>
+  
 </div>
 
 </div>

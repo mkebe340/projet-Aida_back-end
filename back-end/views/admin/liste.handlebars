@@ -1,51 +1,52 @@
 <body>
-
+     <div> 
+             <svg class="diagonale" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800">
+    <path fill="#72adf0b4" fill-opacity="1" d="M0,100L1440,400L1440,800L0,800Z"></path></svg>
     <h1>{{title}}</h1>
 
-    <button type="btn" class="btn btn-outline-primary">
+    <button type="btn" class="btn btn-outline-primary boutonRetour">
         <a href="/">
             RETOUR SUR LE SITE
         </a>
     </button>
 
-    <h3>Mes publications</h3> -->
+    <h3 class='titre'>Mes publications</h3> 
 
 
     <!-- Associer bouton edit et delete à chaque article  -->
     {{#each posts}}
-    <tr class="table-row">
-        <td class="table-posts">
-            <div>{{this.titre}}</div>
-        </td>
-        <td class="table-posts">
-            <div>{{this.type}}</div>
-        </td>
-        <td class="table-posts">
-            <div>{{this.date}}</div>
+ 
+
+        <table class="articles">
+
+
+        <td>
+            <div>Titre : {{this.titre}}</div>
+            <div >Type : {{this.type}}</div>
+            <div >Description : {{this.description}}</div>
+            <div >      -----         </div>
+
         </td>
 
-        <td class="table-division">
+
+        <th>
 
             <a href='/admin/liste/modification/{{this._id}}'>
-                <button class="fas fa-edit"></button>
+                <button class="btn btn-primary fas fa-edit"></button>
             </a>
-
-            {{!-- <form action='/admin/liste/modification/' method='get'>
-                <input type='hidden' name='id' value='{{this._id}}'></input>
-                <button type="submit" class="fas fa-edit"></button>
-            </form> --}}
-        </td>
-
-        <td class="table-division">
 
             <form action='/admin/liste/suppression/' method='POST'>
                 <input type='hidden' name='id' value='{{this._id}}'></input>
-                <button type="submit" class="fa fa-trash"></button>
+                <button type="submit" class="fas fa-trash-alt btn btn-primary mt-2 mb-4"></button>
             </form>
+        </th>
 
 
-        </td>
-    </tr>
+
+        </table>
+
+
+
     {{/each}}
 
     {{#unless posts}}
@@ -63,12 +64,12 @@
 
 
     <form action="http://localhost:3000/admin/creation">
-        <button type="submit" class="btn btn-primary">Créer un nouvel article</button>
+        <button type="submit" class="btn btn-primary boutonCreation">Créer un nouvel article</button>
     </form>
 
 
 
 
 
-
+  </div>
 </body>

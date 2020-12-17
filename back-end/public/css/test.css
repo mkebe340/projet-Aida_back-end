@@ -14,15 +14,111 @@ h3 {
 }
 
 .btn {
-    box-shadow: 3px 1px 3px 3px 2em rgba(151, 151, 151, 0.445);
+    box-shadow: 3px 1px 3px 3px 2em rgba(83, 83, 83, 0.445);
+}
+
+.diagonale {
+    position: absolute;
 }
 
 .wysiwyg {
-    display: flex;
-    justify-content: center;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+
+}
+
+.tox-edit-area {
+    opacity: 0.8 !important
 }
 
 .creation-btn-publier {
     display: flex;
     justify-content: center;
 }
+
+.creation-titre {
+    text-align: center;
+}
+
+.creation-elements {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.titre {
+    margin-left : 580px;
+    position: relative;
+}
+
+.articles {
+    margin-left : 550px;
+    margin-top : 50px;
+    position: relative;
+}
+
+.boutonCreation {
+    margin-left : 580px;
+    margin-top : 70px;
+    position: relative;
+}
+
+.boutonRetour {
+    margin-left : 60px;
+    margin-top : 40px;
+    position: relative;
+}
+
+.titreCreation {
+    margin-left : 500px;
+    margin-top : 40px;
+    position: relative;
+}
+
+.titreCreer {
+    margin-left : 580px;
+    margin-top : -60px;
+    position: relative;
+}
+
+.titrelog {
+    margin-top : 90px;
+    position: relative;
+}
+
+.formlog {
+    margin-left : 340px;
+    margin-top : 60px;
+    position: relative;
+}
+
+.espace {
+    margin-right: 20px;
+    position: relative;
+}
+
+.boutonlog {
+    margin-left : 620px;
+    margin-top : 70px;
+    position: relative;
+}
+
+.titreSign {
+    margin-left : 330px;
+    margin-top : 70px;
+    position: relative;
+}
+
+.btnS {
+    margin-top : 150px;
+    margin-left : -450px;
+    position: relative;
+}
+
+.formsign {
+    margin-top : 10px;
+    margin-left : 300px;
+    position: relative;
+}
+
