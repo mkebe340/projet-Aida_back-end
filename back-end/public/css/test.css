@@ -14,15 +14,35 @@ h3 {
 }
 
 .btn {
-    box-shadow: 3px 1px 3px 3px 2em rgba(151, 151, 151, 0.445);
+    box-shadow: 3px 1px 3px 3px 2em rgba(83, 83, 83, 0.445);
+}
+
+.diagonale {
+    position: absolute;
 }
 
 .wysiwyg {
-    display: flex;
-    justify-content: center;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+
+}
+
+.tox-edit-area {
+    opacity: 0.8 !important
 }
 
 .creation-btn-publier {
     display: flex;
     justify-content: center;
+}
+
+.creation-titre {
+    text-align: center;
+}
+
+.creation-elements {
+    margin-left: auto;
+    margin-right: auto;
 }
